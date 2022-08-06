@@ -13,7 +13,7 @@ kubernetes.io > Documentation > Tasks > Access Applications in a Cluster > [Use 
 
 <br/>
 
-### <input type="checkbox"> Create a namespace called 'mynamespace' and a pod with image nginx called nginx on this namespace
+### Create a namespace called 'mynamespace' and a pod with image nginx called nginx on this namespace
 
 <details><summary>show</summary>
 <p>
@@ -28,7 +28,7 @@ kubectl run nginx --image=nginx --restart=Never -n mynamespace
 
 <br/>
 
-### <input type="checkbox"> Create the pod that was just described using YAML
+###Create the pod that was just described using YAML
 
 <details><summary>show</summary>
 <p>
@@ -78,7 +78,7 @@ kubectl run nginx --image=nginx --restart=Never --dry-run=client -o yaml | kubec
 
 <br/>
 
-### <input type="checkbox"> Create a busybox pod (using kubectl command) that runs the command "env". Run it and see the output
+###Create a busybox pod (using kubectl command) that runs the command "env". Run it and see the output
 
 <details><summary>show</summary>
 <p>
@@ -96,7 +96,7 @@ kubectl logs busybox
 
 <br/>
 
-### <input type="checkbox"> Create a busybox pod (using YAML) that runs the command "env". Run it and see the output
+### Create a busybox pod (using YAML) that runs the command "env". Run it and see the output
 
 <details><summary>show</summary>
 <p>
@@ -139,7 +139,7 @@ kubectl logs busybox
 
 <br/>
 
-### <input type="checkbox"> Get the YAML for a new namespace called 'myns' without creating it
+### Get the YAML for a new namespace called 'myns' without creating it
 
 <details><summary>show</summary>
 <p>
@@ -153,7 +153,7 @@ kubectl create namespace myns -o yaml --dry-run=client
 
 <br/>
 
-### <input type="checkbox"> Get the YAML for a new ResourceQuota called 'myrq' with hard limits of 1 CPU, 1G memory and 2 pods without creating it
+### Get the YAML for a new ResourceQuota called 'myrq' with hard limits of 1 CPU, 1G memory and 2 pods without creating it
 
 <details><summary>show</summary>
 <p>
@@ -167,7 +167,7 @@ kubectl create quota myrq --hard=cpu=1,memory=1G,pods=2 --dry-run=client -o yaml
 
 <br/>
 
-### <input type="checkbox"> Get pods on all namespaces
+### Get pods on all namespaces
 
 <details><summary>show</summary>
 <p>
@@ -185,7 +185,7 @@ kubectl get po -A
 
 <br/>
 
-### <input type="checkbox"> Create a pod with image nginx called nginx and expose traffic on port 80
+### Create a pod with image nginx called nginx and expose traffic on port 80
 
 <details><summary>show</summary>
 <p>
@@ -199,7 +199,7 @@ kubectl run nginx --image=nginx --restart=Never --port=80
 
 <br/>
 
-### <input type="checkbox"> Change pod's image to nginx:1.7.1. Observe that the container will be restarted as soon as the image gets pulled
+### Change pod's image to nginx:1.7.1. Observe that the container will be restarted as soon as the image gets pulled
 
 <details><summary>show</summary>
 <p>
@@ -238,7 +238,7 @@ kubectl get po nginx -o jsonpath='{.spec.containers[].image}{"\n"}'
 
 <br/>
 
-### <input type="checkbox"> Get nginx pod's ip created in previous step, use a temp busybox image to wget its '/'
+### Get nginx pod's ip created in previous step, use a temp busybox image to wget its '/'
 
 <details><summary>show</summary>
 <p>
@@ -269,7 +269,7 @@ kubectl run busybox --image=busybox --rm -it --restart=Never -- wget -O- $(kubec
 
 <br/>
 
-### <input type="checkbox"> Get pod's YAML
+### Get pod's YAML
 
 <details><summary>show</summary>
 <p>
@@ -289,7 +289,7 @@ kubectl get po nginx --output=yaml
 
 <br/>
 
-### <input type="checkbox"> Get information about the pod, including details about potential issues (e.g. pod hasn't started)
+### Get information about the pod, including details about potential issues (e.g. pod hasn't started)
 
 <details><summary>show</summary>
 <p>
@@ -303,7 +303,7 @@ kubectl describe po nginx
 
 <br/>
 
-### <input type="checkbox"> Get pod logs
+### Get pod logs
 
 <details><summary>show</summary>
 <p>
@@ -317,7 +317,7 @@ kubectl logs nginx
 
 <br/>
 
-### <input type="checkbox"> If pod crashed and restarted, get logs about the previous instance
+### If pod crashed and restarted, get logs about the previous instance
 
 <details><summary>show</summary>
 <p>
@@ -333,7 +333,7 @@ kubectl logs nginx --previous
 
 <br/>
 
-### <input type="checkbox"> Execute a simple shell on the nginx pod
+### Execute a simple shell on the nginx pod
 
 <details><summary>show</summary>
 <p>
@@ -347,7 +347,7 @@ kubectl exec -it nginx -- /bin/sh
 
 <br/>
 
-### <input type="checkbox"> Create a busybox pod that echoes 'hello world' and then exits
+### Create a busybox pod that echoes 'hello world' and then exits
 
 <details><summary>show</summary>
 <p>
@@ -363,7 +363,7 @@ kubectl run busybox --image=busybox -it --restart=Never -- /bin/sh -c 'echo hell
 
 <br/>
 
-### <input type="checkbox"> Do the same, but have the pod deleted automatically when it's completed
+### Do the same, but have the pod deleted automatically when it's completed
 
 <details><summary>show</summary>
 <p>
@@ -378,7 +378,7 @@ kubectl get po # nowhere to be found :)
 
 <br/>
 
-### <input type="checkbox"> Create an nginx pod and set an env value as 'var1=val1'. Check the env value existence within the pod
+### Create an nginx pod and set an env value as 'var1=val1'. Check the env value existence within the pod
 
 <details><summary>show</summary>
 <p>
