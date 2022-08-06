@@ -46,6 +46,7 @@ kubectl delete -f pod.yaml
 
 </p>
 </details>
+<br/>
 
 ### Modify the pod.yaml file so that liveness probe starts kicking in after 5 seconds whereas the interval between probes would be 5 seconds. Run it, check the probe, delete it.
 
@@ -89,6 +90,7 @@ kubectl delete -f pod.yaml
 
 </p>
 </details>
+<br/>
 
 ### Create an nginx pod (that includes port 80) with an HTTP readinessProbe on path '/' on port 80. Again, run it, check the readinessProbe, delete it.
 
@@ -133,6 +135,7 @@ kubectl delete -f pod.yaml
 
 </p>
 </details>
+<br/>
 
 ### Lots of pods are running in `qa`,`alan`,`test`,`production` namespaces.  All of these pods are configured with liveness probe.  Please list all pods whose liveness probe are failed in the format of `<namespace>/<pod name>` per line.
 
@@ -157,6 +160,7 @@ kubectl -n production get events | grep -i "Liveness probe failed"
 
 </p>
 </details>
+<br/>
 
 ## Logging
 
@@ -172,6 +176,7 @@ kubectl logs busybox -f # follow the logs
 
 </p>
 </details>
+<br/>
 
 ## Debugging
 
@@ -190,6 +195,7 @@ kubectl delete po busybox
 
 </p>
 </details>
+<br/>
 
 ### Create a busybox pod that runs 'notexist'. Determine if there's an error (of course there is), see it. In the end, delete the pod forcefully with a 0 grace period
 
@@ -207,6 +213,7 @@ kubectl delete po busybox --force --grace-period=0
 
 </p>
 </details>
+<br/>
 
 
 ### Get CPU/memory utilization for nodes ([metrics-server](https://github.com/kubernetes-incubator/metrics-server) must be running)
@@ -220,3 +227,4 @@ kubectl top nodes
 
 </p>
 </details>
+<br/>

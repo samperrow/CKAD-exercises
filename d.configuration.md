@@ -26,6 +26,8 @@ kubectl create configmap config --from-literal=foo=lala --from-literal=foo2=lolo
 
 </p>
 </details>
+<br/>
+
 
 ### Display its values
 
@@ -40,6 +42,7 @@ kubectl describe cm config
 
 </p>
 </details>
+<br/>
 
 ### Create and display a configmap from a file
 
@@ -59,6 +62,7 @@ kubectl get cm configmap2 -o yaml
 
 </p>
 </details>
+<br/>
 
 ### Create and display a configmap from a .env file
 
@@ -78,6 +82,7 @@ kubectl get cm configmap3 -o yaml
 
 </p>
 </details>
+<br/>
 
 ### Create and display a configmap from a file, giving the key 'special'
 
@@ -98,6 +103,7 @@ kubectl get cm configmap4 -o yaml
 
 </p>
 </details>
+<br/>
 
 ### Create a configMap called 'options' with the value var5=val5. Create a new nginx pod that loads the value from variable 'var5' in an env variable called 'option'
 
@@ -142,6 +148,7 @@ kubectl exec -it nginx -- env | grep option # will show 'option=val5'
 
 </p>
 </details>
+<br/>
 
 ### Create a configMap 'anotherone' with values 'var6=val6', 'var7=val7'. Load this configMap as env variables into a new nginx pod
 
@@ -183,6 +190,7 @@ kubectl exec -it nginx -- env
 
 </p>
 </details>
+<br/>
 
 ### Create a configMap 'cmvolume' with values 'var8=val8', 'var9=val9'. Load this as a volume inside an nginx pod on path '/etc/lala'. Create the pod and 'ls' into the '/etc/lala' directory.
 
@@ -231,6 +239,7 @@ cat var8 # will show val8
 
 </p>
 </details>
+<br/>
 
 ## SecurityContext
 
@@ -269,7 +278,7 @@ status: {}
 
 </p>
 </details>
-
+<br/>
 
 ### Create the YAML for an nginx pod that has the capabilities "NET_ADMIN", "SYS_TIME" added to its single container
 
@@ -305,6 +314,7 @@ status: {}
 
 </p>
 </details>
+<br/>
 
 ## Requests and limits
 
@@ -364,6 +374,7 @@ status: {}
 
 </p>
 </details>
+<br/>
 
 ## Secrets
 
@@ -382,6 +393,7 @@ kubectl create secret generic mysecret --from-literal=password=mypass
 
 </p>
 </details>
+<br/>
 
 ### Create a secret called mysecret2 that gets key/value from a file
 
@@ -400,6 +412,7 @@ kubectl create secret generic mysecret2 --from-file=username
 
 </p>
 </details>
+<br/>
 
 ### Get the value of mysecret2
 
@@ -425,6 +438,7 @@ kubectl get secret mysecret2 --template '{{.data.username}}' | base64 -d  # on M
 
 </p>
 </details>
+<br/>
 
 ### Create an nginx pod that mounts the secret mysecret2 in a volume on path /etc/foo
 
@@ -471,6 +485,7 @@ cat /etc/foo/username # shows admin
 
 </p>
 </details>
+<br/>
 
 ### Delete the pod you just created and mount the variable 'username' from secret mysecret2 onto a new nginx pod in env variable called 'USERNAME'
 
@@ -515,6 +530,7 @@ kubectl exec -it nginx -- env | grep USERNAME | cut -d '=' -f 2 # will show 'adm
 
 </p>
 </details>
+<br/>
 
 ## ServiceAccounts
 
@@ -567,6 +583,7 @@ kubectl create -f sa.yaml
 
 </p>
 </details>
+<br/>
 
 ### Create an nginx pod that uses 'myuser' as a service account
 

@@ -13,7 +13,7 @@ kubectl run nginx --image=nginx --restart=Never --port=80 --expose
 
 </p>
 </details>
-
+<br/>
 
 ### Confirm that ClusterIP has been created. Also check endpoints
 
@@ -27,6 +27,7 @@ kubectl get ep # endpoints
 
 </p>
 </details>
+<br/>
 
 ### Get service's ClusterIP, create a temp busybox pod and 'hit' that IP with wget
 
@@ -52,6 +53,7 @@ kubectl run busybox --rm --image=busybox -it --restart=Never --env="IP=$IP" -- w
 
 </p>
 </details>
+<br/>
 
 ### Convert the ClusterIP to NodePort for the same service and find the NodePort port. Hit service using Node's IP. Delete the service and the pod at the end.
 
@@ -114,6 +116,7 @@ kubectl delete pod nginx # Deletes the pod
 ```
 </p>
 </details>
+<br/>
 
 ### Create a deployment called foo using image 'dgkanatsios/simpleapp' (a simple server that returns hostname) and 3 replicas. Label it as 'app=foo'. Declare that containers in this pod will accept traffic on port 8080 (do NOT create a service yet)
 
@@ -126,6 +129,7 @@ kubectl label deployment foo --overwrite app=foo
 ```
 </p>
 </details>
+<br/>
 
 ### Get the pod IPs. Create a temp busybox pod and try hitting them on port 8080
 
@@ -145,6 +149,7 @@ kubectl get po -o wide -l app=foo | awk '{print $6}' | grep -v IP | xargs -L1 -I
 
 </p>
 </details>
+<br/>
 
 ### Create a service that exposes the deployment on port 6262. Verify its existence, check the endpoints
 
@@ -160,6 +165,7 @@ kubectl get endpoints foo # you will see the IPs of the three replica pods, list
 
 </p>
 </details>
+<br/>
 
 ### Create a temp busybox pod and connect via wget to foo service. Verify that each time there's a different hostname returned. Delete deployment and services to cleanup the cluster
 
@@ -178,6 +184,7 @@ kubectl delete deploy foo
 
 </p>
 </details>
+<br/>
 
 ### Create an nginx deployment of 2 replicas, expose it via a ClusterIP service on port 80. Create a NetworkPolicy so that only pods with labels 'access: granted' can access the deployment and apply it
 
